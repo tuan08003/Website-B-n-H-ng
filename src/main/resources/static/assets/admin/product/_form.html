@@ -1,0 +1,70 @@
+<div class="card">
+    <div class="card-header">PRODUCT EDITION</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <label for="image">
+                    <img ng-src="{{ '/assets/images/' + form.image }}" class="img-fluid">
+                </label>
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-6 mb-3">
+                        <label for="productName" class="form-label">Name</label>
+                        <input ng-model="form.name" type="text" class="form-control" id="productName">
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <label for="productPrice" class="form-label">Price</label>
+                        <input ng-model="form.price" type="text" class="form-control" id="productPrice">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="image"
+                        onchange="angular.element(this).scope().imageChanged(this.files)" >
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <select ng-model="form.category.id" class="form-select" id="category">
+                            <option ng-repeat="c in cates" ng-value="c.id">{{c.name}} </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 mb-3">
+                        <label for="createDate" class="form-label">Create Date</label>
+                        <input ng-model="form.createDate" type="date" class="form-control" id="createDate">
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <label class="form-label">Available?</label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input ng-model="form.available" class="form-check-input" type="radio" name="available" id="availableYes" ng-value="true">
+                                <label class="form-check-label" for="availableYes">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input ng-model="form.available" class="form-check-input" type="radio" name="available" id="availableNo" ng-value="false">
+                                <label class="form-check-label" for="availableNo">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-center">
+        <button ng-click="create()" class="btn btn-primary">
+            <i class="bi bi-plus"></i> Create
+        </button>
+        <button ng-click="update()" class="btn btn-success">
+            <i class="bi bi-save"></i> Update
+        </button>
+        <button ng-click="delete(form)" class="btn btn-danger">
+            <i class="bi bi-trash"></i> Delete
+        </button>
+        <button ng-click="reset()" class="btn btn-info">
+            <i class="bi bi-arrow-clockwise"></i> Reset
+        </button>
+    </div>
+</div>

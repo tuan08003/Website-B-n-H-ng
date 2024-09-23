@@ -1,0 +1,17 @@
+<meta charset="UTF-8" />
+
+<div xmlns:th="http://www.thymeleaf.org" >
+	<div class="card mt-3">
+		<div class="card-body">
+			  <div class=" card-header">
+			  		<b> <i class="fa-solid fa-briefcase"></i> Danh Mục</b>
+			  </div>
+			  
+			  <div class="list-group">
+			    <a th:each="c:${cates}" th:href="@{|/product/test?cid=${c.id}|}"
+			    class="list-group-item list-group-item-action">[[${c.name}]]</a>
+			    
+			  </div>
+		 </div>
+	</div>
+</div>
